@@ -1,129 +1,125 @@
 $(document).ready(function() {
     const rounds = [
         {
-            question: "Name something adults do at Halloween parties.",
+            question: "Name a popular Halloween costume.",
             answers: [
-                { answer: "Drink alcohol", points: 40, variations: ["drinking", "booze", "party"] },
-                { answer: "Wear sexy costumes", points: 30, variations: ["sexy outfit", "costumes"] },
-                { answer: "Dance", points: 20, variations: ["dancing"] },
-                { answer: "Carve pumpkins", points: 10, variations: ["pumpkin carving"] },
-                { answer: "Tell scary stories", points: 5, variations: ["storytelling", "scary stories"] },
-                { answer: "Play drinking games", points: 5, variations: ["drinking games"] }
+                { answer: "Witch", points: 10, variations: ["Sorceress"] },
+                { answer: "Vampire", points: 20, variations: ["Dracula"] },
+                { answer: "Ghost", points: 30, variations: ["Spirit"] },
+                { answer: "Zombie", points: 40, variations: ["Undead"] },
+                { answer: "Mummy", points: 50, variations: [] },
+                { answer: "Pirate", points: 60, variations: [] },
             ],
-            multiplier: 1
+            multiplier: 1,
         },
         {
-            question: "Name a popular Halloween costume for women.",
+            question: "What candy is most popular on Halloween?",
             answers: [
-                { answer: "Sexy witch", points: 50, variations: ["witch", "sexy witch costume"] },
-                { answer: "Catwoman", points: 40, variations: ["cat woman"] },
-                { answer: "Vampire", points: 30, variations: ["vamp"] },
-                { answer: "Nurse", points: 20, variations: ["sexy nurse"] },
-                { answer: "Cheerleader", points: 10, variations: ["cheerleader costume"] },
-                { answer: "Zombie", points: 5, variations: ["zombie costume"] }
+                { answer: "Chocolate", points: 10, variations: [] },
+                { answer: "Candy Corn", points: 20, variations: [] },
+                { answer: "Skittles", points: 30, variations: [] },
+                { answer: "Snickers", points: 40, variations: [] },
+                { answer: "M&M's", points: 50, variations: [] },
+                { answer: "Reese's", points: 60, variations: [] },
             ],
-            multiplier: 1
+            multiplier: 2,
         },
         {
-            question: "Name a classic Halloween horror movie.",
+            question: "Name a Halloween-themed movie.",
             answers: [
-                { answer: "Halloween", points: 50, variations: [] },
-                { answer: "Nightmare on Elm Street", points: 40, variations: ["nightmare on elm"] },
-                { answer: "Friday the 13th", points: 30, variations: [] },
-                { answer: "The Exorcist", points: 20, variations: [] },
-                { answer: "Scream", points: 10, variations: [] },
-                { answer: "The Shining", points: 5, variations: [] }
+                { answer: "Halloween", points: 10, variations: ["Halloween II"] },
+                { answer: "Hocus Pocus", points: 20, variations: [] },
+                { answer: "Ghostbusters", points: 30, variations: [] },
+                { answer: "The Exorcist", points: 40, variations: [] },
+                { answer: "It", points: 50, variations: [] },
+                { answer: "Scream", points: 60, variations: [] },
             ],
-            multiplier: 1
+            multiplier: 3,
         },
         {
-            question: "Name a Halloween decoration you see everywhere.",
+            question: "Name something you carve for Halloween.",
             answers: [
-                { answer: "Pumpkins", points: 50, variations: [] },
-                { answer: "Skeletons", points: 40, variations: [] },
-                { answer: "Spiders/Webs", points: 30, variations: ["spider webs"] },
-                { answer: "Gravestones", points: 20, variations: ["tombstones"] },
-                { answer: "Ghosts", points: 10, variations: [] },
-                { answer: "Bats", points: 5, variations: [] }
+                { answer: "Pumpkin", points: 10, variations: [] },
+                { answer: "Turnip", points: 20, variations: [] },
+                { answer: "Gourd", points: 30, variations: [] },
+                { answer: "Watermelon", points: 40, variations: [] },
+                { answer: "Potato", points: 50, variations: [] },
+                { answer: "Apple", points: 60, variations: [] },
             ],
-            multiplier: 2
+            multiplier: 1,
         },
         {
-            question: "Name a Halloween monster people dress up as.",
+            question: "What is a common Halloween decoration?",
             answers: [
-                { answer: "Vampire", points: 50, variations: [] },
-                { answer: "Witch", points: 40, variations: [] },
+                { answer: "Skeleton", points: 10, variations: [] },
+                { answer: "Cobweb", points: 20, variations: [] },
+                { answer: "Pumpkin", points: 30, variations: [] },
+                { answer: "Bat", points: 40, variations: [] },
+                { answer: "Ghost", points: 50, variations: [] },
+                { answer: "Witch", points: 60, variations: [] },
+            ],
+            multiplier: 2,
+        },
+        {
+            question: "What do you say when you knock on someone's door on Halloween?",
+            answers: [
+                { answer: "Trick or Treat", points: 10, variations: [] },
+                { answer: "Boo!", points: 20, variations: [] },
+                { answer: "Happy Halloween", points: 30, variations: [] },
+                { answer: "Give me candy", points: 40, variations: [] },
+                { answer: "Surprise!", points: 50, variations: [] },
+                { answer: "Is anyone home?", points: 60, variations: [] },
+            ],
+            multiplier: 3,
+        },
+        {
+            question: "Name a famous witch.",
+            answers: [
+                { answer: "Winnie Sanderson", points: 10, variations: [] },
+                { answer: "Elphaba", points: 20, variations: [] },
+                { answer: "Sabrina", points: 30, variations: [] },
+                { answer: "Hermione", points: 40, variations: [] },
+                { answer: "Glinda", points: 50, variations: [] },
+                { answer: "Samantha", points: 60, variations: [] },
+            ],
+            multiplier: 1,
+        },
+        {
+            question: "What is a common Halloween party game?",
+            answers: [
+                { answer: "Bob for Apples", points: 10, variations: [] },
+                { answer: "Haunted House", points: 20, variations: [] },
+                { answer: "Costume Contest", points: 30, variations: [] },
+                { answer: "Pin the Hat on the Witch", points: 40, variations: [] },
+                { answer: "Mummy Wrap", points: 50, variations: [] },
+                { answer: "Pumpkin Bowling", points: 60, variations: [] },
+            ],
+            multiplier: 2,
+        },
+        {
+            question: "What type of monster is Dracula?",
+            answers: [
+                { answer: "Vampire", points: 10, variations: [] },
+                { answer: "Zombie", points: 20, variations: [] },
                 { answer: "Werewolf", points: 30, variations: [] },
-                { answer: "Frankenstein", points: 20, variations: [] },
-                { answer: "Zombie", points: 10, variations: [] },
-                { answer: "Mummy", points: 5, variations: [] }
+                { answer: "Ghost", points: 40, variations: [] },
+                { answer: "Mummy", points: 50, variations: [] },
+                { answer: "Frankenstein", points: 60, variations: [] },
             ],
-            multiplier: 2
+            multiplier: 3,
         },
         {
-            question: "Name a spooky sound you hear on Halloween.",
+            question: "Name something you might see in a haunted house.",
             answers: [
-                { answer: "Screams", points: 50, variations: [] },
-                { answer: "Wolf howls", points: 40, variations: ["wolf howl"] },
-                { answer: "Creaking doors", points: 30, variations: [] },
-                { answer: "Thunder", points: 20, variations: [] },
-                { answer: "Chains rattling", points: 10, variations: [] },
-                { answer: "Evil laughter", points: 5, variations: [] }
+                { answer: "Ghost", points: 10, variations: [] },
+                { answer: "Skeleton", points: 20, variations: [] },
+                { answer: "Zombie", points: 30, variations: [] },
+                { answer: "Spider", points: 40, variations: [] },
+                { answer: "Cobweb", points: 50, variations: [] },
+                { answer: "Pumpkin", points: 60, variations: [] },
             ],
-            multiplier: 2
+            multiplier: 1,
         },
-        {
-            question: "Name something people fear about Halloween night.",
-            answers: [
-                { answer: "Ghosts", points: 50, variations: [] },
-                { answer: "Darkness", points: 40, variations: [] },
-                { answer: "Witches", points: 30, variations: [] },
-                { answer: "Haunted houses", points: 20, variations: ["haunted house"] },
-                { answer: "Vandalism", points: 10, variations: [] },
-                { answer: "Getting pranked", points: 5, variations: [] }
-            ],
-            multiplier: 3
-        },
-        {
-            question: "Name a reason adults dislike trick-or-treating.",
-            answers: [
-                { answer: "Too many kids", points: 50, variations: [] },
-                { answer: "Too late at night", points: 40, variations: [] },
-                { answer: "Don't like candy", points: 30, variations: [] },
-                { answer: "Costumes are expensive", points: 20, variations: [] },
-                { answer: "Answering the door repeatedly", points: 10, variations: [] },
-                { answer: "Annoying parents", points: 5, variations: [] }
-            ],
-            multiplier: 3
-        },
-        {
-            question: "Name a classic horror movie villain.",
-            answers: [
-                { answer: "Freddy Krueger", points: 50, variations: [] },
-                { answer: "Michael Myers", points: 40, variations: [] },
-                { answer: "Jason Voorhees", points: 30, variations: [] },
-                { answer: "Chucky", points: 20, variations: [] },
-                { answer: "Ghostface", points: 10, variations: [] },
-                { answer: "Leatherface", points: 5, variations: [] }
-            ],
-            multiplier: 3
-        },
-        {
-            question: "Name a Halloween prank people play.",
-            answers: [
-                { answer: "Egging houses", points: 50, variations: [] },
-                { answer: "Toilet papering trees", points: 40, variations: [] },
-                { answer: "Ding-dong ditch", points: 30, variations: [] },
-                { answer: "Jump scares", points: 20, variations: [] },
-                { answer: "Fake spiders", points: 10, variations: [] },
-                { answer: "Switching candy with something gross", points: 5, variations: [] }
-            ],
-            multiplier: 3
-        }
-    ];
-
-    const rounds = [
-        // (Your existing rounds array)
     ];
 
     let currentRound = 0;
@@ -131,6 +127,27 @@ $(document).ready(function() {
     let girlsScore = 0;
     let submittedAnswers = new Set(); // Store submitted answers
     let currentTeam = 'boys'; // Track current team
+
+    // Function to randomly choose the starting team
+    function randomizeStartingTeam() {
+        const teams = ['boys', 'girls'];
+        const randomIndex = Math.floor(Math.random() * teams.length);
+        return teams[randomIndex];
+    }
+
+    // Start Game button handler
+    $('#start-button').click(function() {
+        // Randomly select starting team
+        currentTeam = randomizeStartingTeam();
+        $('#current-team').text('Current Turn: ' + (currentTeam.charAt(0).toUpperCase() + currentTeam.slice(1)));
+        
+        // Hide the start button and show the game content
+        $('#start-game').hide();
+        $('#game-content').show();
+
+        // Initialize the first round
+        updateRound();
+    });
 
     function checkAnswer(userAnswer) {
         let correctAnswer = false;
@@ -214,6 +231,6 @@ $(document).ready(function() {
         }
     });
 
-    // Initialize first round
-    updateRound();
+    // Hide game content initially
+    $('#game-content').hide();
 });
