@@ -1,0 +1,62 @@
+body {
+    font-family: 'Creepster', cursive, sans-serif;
+    background: url('https://i.imgur.com/Zz3bCJH.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+}
+
+#start-game {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#start-game h1 {
+    font-size: 36px;
+    color: orange; /* Title color */
+    margin-bottom: 20px;
+}
+
+#start-button {
+    font-size: 24px;
+    padding: 10px 20px;
+    background-color: orange; /* Change this for Halloween theme */
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+#start-button:hover {
+    background-color: darkorange; /* Change color on hover */
+}
+
+#turn-indicator {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#current-team {
+    font-size: 24px;
+    font-weight: bold;
+    color: yellow;
+}
+
+.answer {
+    margin: 10px 0;
+}
+
+#user-answer {
+    padding: 10px;
+    font-size: 18px;
+}
+
+button {
+    padding: 10px;
+    font-size: 18px;
+    margin: 5px;
+}
