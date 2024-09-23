@@ -3,28 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Family Feud Game</title>
+    <title>Sinister Showdown: Halloween Feud</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="game-container">
-        <h1>Family Feud Game</h1>
+        <h1>Sinister Showdown: Halloween Edition</h1>
+        <h3>Team Boys vs Team Girls</h3>
+        <div class="round-info">
+            <h2 id="round-title">Round 1</h2>
+            <h3 id="multiplier">Points: 1x</h3>
+        </div>
         <div class="question-container">
-            <h2>Question: Name a fruit you associate with breakfast.</h2>
+            <h2 id="question">Name something adults do at Halloween parties.</h2>
         </div>
         <div class="answers-container">
             <div class="answer" data-points="40">1. <span class="answer-text">-</span> <span class="points"></span></div>
             <div class="answer" data-points="30">2. <span class="answer-text">-</span> <span class="points"></span></div>
             <div class="answer" data-points="20">3. <span class="answer-text">-</span> <span class="points"></span></div>
             <div class="answer" data-points="10">4. <span class="answer-text">-</span> <span class="points"></span></div>
+            <div class="answer" data-points="5">5. <span class="answer-text">-</span> <span class="points"></span></div>
+            <div class="answer" data-points="5">6. <span class="answer-text">-</span> <span class="points"></span></div>
         </div>
         <div class="input-container">
             <input type="text" id="user-answer" placeholder="Your answer">
             <button id="submit-answer">Submit</button>
         </div>
         <div class="score-container">
-            <h3>Score: <span id="score">0</span></h3>
+            <h3>Boys' Score: <span id="boys-score">0</span></h3>
+            <h3>Girls' Score: <span id="girls-score">0</span></h3>
         </div>
+        <button id="next-round">Next Round</button>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
