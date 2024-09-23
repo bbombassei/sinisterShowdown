@@ -3,43 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Your Website Title</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
-    <script src="script.js" defer></script> <!-- Link to your JavaScript file -->
+    <title>Family Feud Game</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="game-container">
+        <h1>Family Feud Game</h1>
+        <div class="question-container">
+            <h2>Question: Name a fruit you associate with breakfast.</h2>
+        </div>
+        <div class="answers-container">
+            <div class="answer" data-points="40">1. <span class="answer-text">-</span> <span class="points"></span></div>
+            <div class="answer" data-points="30">2. <span class="answer-text">-</span> <span class="points"></span></div>
+            <div class="answer" data-points="20">3. <span class="answer-text">-</span> <span class="points"></span></div>
+            <div class="answer" data-points="10">4. <span class="answer-text">-</span> <span class="points"></span></div>
+        </div>
+        <div class="input-container">
+            <input type="text" id="user-answer" placeholder="Your answer">
+            <button id="submit-answer">Submit</button>
+        </div>
+        <div class="score-container">
+            <h3>Score: <span id="score">0</span></h3>
+        </div>
+    </div>
 
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <section id="home">
-            <h1>Welcome to Your Website</h1>
-            <p>This is a simple web page.</p>
-        </section>
-
-        <section id="about">
-            <h2>About Us</h2>
-            <p>Write something about yourself here.</p>
-        </section>
-
-        <section id="contact">
-            <h2>Contact Information</h2>
-            <p>Reach out to us through this section.</p>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Your Company Name. All rights reserved.</p>
-    </footer>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
