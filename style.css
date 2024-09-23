@@ -1,0 +1,39 @@
+body {
+    font-family: 'Creepster', cursive; /* Link to a creepy font */
+    background-color: #1a1a1a;
+    color: #f2f2f2;
+    text-align: center;
+}
+
+h1, h2, h3 {
+    color: #ff6600; /* Halloween orange */
+}
+
+button {
+    background-color: #ff3333; /* Red */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #cc0000; /* Darker red */
+}
+
+.hidden {
+    display: none;
+}
+
+#answers {
+    margin-top: 20px;
+}
+
+.answer {
+    background-color: #333333;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
