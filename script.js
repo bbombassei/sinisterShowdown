@@ -1,68 +1,76 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #111;
-    color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
+$(document).ready(function() {
+    const rounds = [
+        {
+            question: "Name something adults do at Halloween parties.",
+            answers: [
+                { answer: "Drink alcohol", points: 40 },
+                { answer: "Wear sexy costumes", points: 30 },
+                { answer: "Dance", points: 20 },
+                { answer: "Carve pumpkins", points: 10 },
+                { answer: "Tell scary stories", points: 5 },
+                { answer: "Play drinking games", points: 5 }
+            ],
+            multiplier: 1
+        },
+        {
+            question: "Name a popular Halloween costume for women.",
+            answers: [
+                { answer: "Sexy witch", points: 50 },
+                { answer: "Catwoman", points: 40 },
+                { answer: "Vampire", points: 30 },
+                { answer: "Nurse", points: 20 },
+                { answer: "Cheerleader", points: 10 },
+                { answer: "Zombie", points: 5 }
+            ],
+            multiplier: 2
+        },
+        {
+            question: "Name a Halloween-themed drink.",
+            answers: [
+                { answer: "Bloody Mary", points: 50 },
+                { answer: "Pumpkin spice cocktail", points: 40 },
+                { answer: "Witches' brew", points: 30 },
+                { answer: "Vampire's kiss", points: 20 },
+                { answer: "Jello shots", points: 10 },
+                { answer: "Spider venom shots", points: 5 }
+            ],
+            multiplier: 3
+        }
+    ];
 
-.game-container {
-    background-color: #222;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
-    text-align: center;
-    width: 450px;
-}
+    let currentRound = 0;
+    let boysScore = 0;
+    let girlsScore = 0;
 
-h1 {
-    color: orange;
-    font-size: 36px;
-}
+    function updateRound() {
+        $('#question').text(rounds[currentRound].question);
+        $('#round-title').text('Round ' + (currentRound + 1));
+        $('#multiplier').text('Points: ' + rounds[currentRound].multiplier + 'x');
+        $('.answer-text').text('-');
+        $('.points').text('');
+        $('#user-answer').val('');
+    }
 
-h2, h3 {
-    color: white;
-}
+    function submitAnswer() {
+        const userAnswer = $('#user-answer').val().toLowerCase();
+        let correctAnswer = false;
 
-.round-info {
-    margin-bottom: 20px;
-}
+        $('.answer').each(function(index) {
+            const answerText = rounds[currentRound].answers[index].answer.toLowerCase();
+            if (userAnswer === answerText && $(this).find('.answer-text').text() === '-') {
+                const points = rounds[currentRound].answers[index].points * rounds[currentRound].multiplier;
+                $(this).find('.answer-text').text(rounds[currentRound].answers[index].answer);
+                $(this).find('.points').text(points);
+                
+                // Alternate scoring between teams
+                if (currentRound % 2 === 0) {
+                    boysScore += points;
+                    $('#boys-score').text(boysScore);
+                } else {
+                    girlsScore += points;
+                    $('#girls-score').text(girlsScore);
+                }
 
-.answers-container .answer {
-    padding: 10px;
-    background-color: #333;
-    margin: 5px 0;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-    font-size: 18px;
-}
-
-.input-container {
-    margin-bottom: 20px;
-}
-
-#user-answer {
-    padding: 10px;
-    font-size: 16px;
-    width: 70%;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-button {
-    padding: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: orange;
-    color: white;
-    border: none;
-    border-radius: 5px;
-}
-
-button:hover {
-    background-color: #ff4500;
-}
+                correctAnswer = true;
+            }
+       
