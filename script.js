@@ -130,6 +130,7 @@ $(document).ready(function() {
     let boysScore = 0;
     let girlsScore = 0;
     let submittedAnswers = new Set(); // Store submitted answers
+    let currentTeam = 'boys'; // Track current team
 
     function checkAnswer(userAnswer) {
         let correctAnswer = false;
@@ -145,7 +146,7 @@ $(document).ready(function() {
                 $(this).find('.points').text(points);
                 
                 // Alternate scoring between teams
-                if (currentRound % 2 === 0) {
+                if (currentTeam === 'boys') {
                     boysScore += points;
                     $('#boys-score').text(boysScore);
                 } else {
@@ -199,6 +200,10 @@ $(document).ready(function() {
         $('.points').text('');
         $('#user-answer').val('');
         submittedAnswers.clear(); // Reset submitted answers for the new round
+
+        // Switch turns
+        currentTeam = currentRound % 2 === 0 ? 'boys' : 'girls';
+        $('#current-team').text('Current Turn: ' + (currentTeam.charAt(0).toUpperCase() + currentTeam.slice(1)));
     }
 
     // Handle Enter key for submitting answers
