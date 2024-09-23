@@ -122,9 +122,14 @@ $(document).ready(function() {
         }
     ];
 
+    const rounds = [
+        // (Your existing rounds array)
+    ];
+
     let currentRound = 0;
     let boysScore = 0;
     let girlsScore = 0;
+    let submittedAnswers = new Set(); // Store submitted answers
 
     function checkAnswer(userAnswer) {
         let correctAnswer = false;
@@ -158,11 +163,21 @@ $(document).ready(function() {
     function submitAnswer() {
         const userAnswer = $('#user-answer').val().toLowerCase();
 
+        // Check if the answer has already been submitted
+        if (submittedAnswers.has(userAnswer)) {
+            alert('This answer has already been submitted. Try a different answer.');
+            $('#user-answer').val(''); // Clear the input field
+            return; // Exit the function if the answer is a duplicate
+        }
+
+        // Mark the answer as submitted
+        submittedAnswers.add(userAnswer);
+
         if (!checkAnswer(userAnswer)) {
             alert('Wrong answer! Try again.');
         }
 
-        $('#user-answer').val('');
+        $('#user-answer').val(''); // Clear the input field after submission
     }
 
     $('#submit-answer').click(submitAnswer);
@@ -183,6 +198,7 @@ $(document).ready(function() {
         $('.answer-text').text('-');
         $('.points').text('');
         $('#user-answer').val('');
+        submittedAnswers.clear(); // Reset submitted answers for the new round
     }
 
     // Handle Enter key for submitting answers
