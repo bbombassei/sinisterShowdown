@@ -1,6 +1,6 @@
 body {
     font-family: 'Creepster', cursive; /* Creepy font applied */
-    background-image: url('bg.jpeg'); /* Background image */
+    background-image: url('../bg.jpeg'); /* Background image */
     background-size: cover;
     color: #ffffff; /* Light text color for contrast */
     text-align: center;
