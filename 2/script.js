@@ -137,7 +137,9 @@ function loadQuestion() {
     answersDiv.empty(); // Clear previous answers
 
     question.answers.forEach(answer => {
-        const answerElement = $("<div>").addClass("answer").text(`${answer.answer} (${answer.points} points)`);
+        const answerElement = $("<div>")
+            .addClass("answer")
+            .text(`${answer.answer} (${answer.points} points)`);
         answersDiv.append(answerElement);
     });
 
@@ -147,11 +149,13 @@ function loadQuestion() {
 
     $("#question-container").removeClass("hidden");
     $("#next-question").addClass("hidden");
+    $("#play-team").removeClass("hidden");
+    $("#play-team-girls").removeClass("hidden");
 }
 
 function nextQuestion() {
-    if (currentQuestionIndex < questions.length - 1) {
-        currentQuestionIndex++;
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length) {
         loadQuestion();
     } else {
         endGame();
@@ -161,3 +165,34 @@ function nextQuestion() {
 function playForBoys() {
     const question = questions[currentQuestionIndex];
     boysPoints += question.answers.reduce((sum, answer) => sum + answer.points, 0);
+    $("#boys-points").text(boysPoints);
+    $("#next-question").removeClass("hidden");
+    $("#play-team").addClass("hidden");
+    $("#play-team-girls").addClass("hidden");
+}
+
+function playForGirls() {
+    const question = questions[currentQuestionIndex];
+    girlsPoints += question.answers.reduce((sum, answer) => sum + answer.points, 0);
+    $("#girls-points").text(girlsPoints);
+    $("#next-question").removeClass("hidden");
+    $("#play-team").addClass("hidden");
+    $("#play-team-girls").addClass("hidden");
+}
+
+function stealPoints() {
+    const question = questions[currentQuestionIndex];
+    // Add logic for the stealing team
+    const stealPointsValue = Math.floor(Math.random() * 50) + 1; // Random steal points for demonstration
+    boysPoints += stealPointsValue;
+    $("#boys-points").text(boysPoints);
+    $("#next-question").removeClass("hidden");
+    $("#play-team").addClass("hidden");
+    $("#play-team-girls").addClass("hidden");
+}
+
+function endGame() {
+    $("#question-container").addClass("hidden");
+    const winner = boysPoints > girlsPoints ? "Boys" : "Girls";
+    alert(`Game Over! The winner is: ${winner}`);
+}
