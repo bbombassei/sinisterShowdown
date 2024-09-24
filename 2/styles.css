@@ -1,40 +1,73 @@
 body {
-    font-family: 'Creepster', cursive; /* You can link to a creepy font */
-    background-image: url('../bg.jpeg');
+    font-family: 'Creepster', cursive; /* Creepy font applied */
+    background-image: url('bg.jpeg'); /* Background image */
     background-size: cover;
-    color: #f2f2f2;
+    color: #ffffff; /* Light text color for contrast */
     text-align: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 h1, h2, h3 {
-    color: #ff6600; /* Halloween orange */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Adding shadows for better visibility */
 }
 
-button {
-    background-color: #ff3333; /* Red */
-    color: white;
+#start-game {
+    background-color: rgba(255, 0, 0, 0.7); /* Semi-transparent red for the start button */
+    color: #ffffff;
+    font-size: 24px;
+    padding: 15px 30px;
     border: none;
-    padding: 10px 20px;
-    margin: 10px;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    transition: background-color 0.3s;
 }
 
-button:hover {
-    background-color: #cc0000; /* Darker red */
+#start-game:hover {
+    background-color: rgba(255, 0, 0, 1); /* Solid red on hover */
 }
 
-.hidden {
-    display: none;
-}
-
-#answers {
-    margin-top: 20px;
+#question-container {
+    background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background for the question area */
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
 }
 
 .answer {
-    background-color: #333333;
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent white for answers */
+    color: #ffffff;
+    margin: 10px 0;
     padding: 10px;
-    margin: 5px;
     border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.answer:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Lighten on hover */
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Hide elements by default */
+.hidden {
+    display: none;
 }
