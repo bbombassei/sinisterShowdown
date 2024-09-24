@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sinister Showdown</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="game-header">
+            <h1>Sinister Showdown</h1>
+            <button id="start-game">Start Game</button>
+        </div>
+        
+        <div class="game-area">
+            <div class="teams">
+                <div class="team" id="boys">Boys: <span class="score" id="boys-score">0</span></div>
+                <div class="team" id="girls">Girls: <span class="score" id="girls-score">0</span></div>
+            </div>
+
+            <div class="round-info">
+                <h2>Round <span id="round-number">1</span></h2>
+                <h3>Question: <span id="question-text">Get ready for the first question!</span></h3>
+            </div>
+
+            <div class="answers">
+                <input type="text" id="answer-input" placeholder="Enter your answer" disabled />
+                <button id="submit-answer" disabled>Submit Answer</button>
+                <div class="correct-answers">
+                    <h4>Correct Answers:</h4>
+                    <ul id="answers-list"></ul>
+                </div>
+            </div>
+
+            <div class="team-selection">
+                <button id="give-to-boys" class="give-points" disabled>Give Points to Boys</button>
+                <button id="give-to-girls" class="give-points" disabled>Give Points to Girls</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
