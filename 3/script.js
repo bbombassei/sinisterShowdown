@@ -69,8 +69,19 @@ $(document).ready(function () {
         }
     }
 
-    function showWrongAnswer() {
-        wrongAnswerCount++;
+function showWrongAnswer() {
+    wrongAnswerCount++;
+    // Clear any previously appended red X's
+    $(".wrong-answers").remove();
+
+    let redXContainer = $('<div class="wrong-answers"></div>').css({
+        display: 'flex',
+        justifyContent: 'center',
+        marginTop: '10px'
+    });
+
+    // Add a red X for each wrong answer count
+    for (let i = 0; i < wrongAnswerCount; i++) {
         let redX = $('<div class="wrong-answer">X</div>').css({
             color: 'red',
             fontSize: '50px',
@@ -79,15 +90,21 @@ $(document).ready(function () {
             border: '3px solid red',
             display: 'inline-block',
             padding: '10px',
-            marginTop: '10px'
+            marginLeft: '5px'
         });
-        $(".game-area").append(redX);
-        setTimeout(function() {
-            redX.fadeOut(function() {
-                $(this).remove();
-            });
-        }, 2000); // Display for 2 seconds
+        redXContainer.append(redX);
     }
+
+    $(".game-area").append(redXContainer);
+
+    // Fade out after 2 seconds, but keep the red X's visible if wrongAnswerCount > 0
+    setTimeout(function() {
+        redXContainer.fadeOut(function() {
+            $(this).remove();
+        });
+    }, 2000);
+}
+
 
     $(".give-points").click(function () {
         let team = $(this).attr("id") === "give-to-boys" ? "#boys-score" : "#girls-score";
