@@ -110,11 +110,11 @@ const questions = [
         ]
     }
 ];
-
 let currentQuestionIndex = 0;
 let boysPoints = 0;
 let girlsPoints = 0;
 let round = 1;
+let correctAnswers = []; // Store correct answers for current question
 
 $(document).ready(function () {
     $("#start-game").click(startGame);
@@ -122,6 +122,7 @@ $(document).ready(function () {
     $("#play-team").click(playForBoys);
     $("#play-team-girls").click(playForGirls);
     $("#steal-points").click(stealPoints);
+    $("#submit-guess").click(checkGuess); // Bind guess check function
 });
 
 function startGame() {
@@ -136,21 +137,19 @@ function loadQuestion() {
     const answersDiv = $("#answers");
     answersDiv.empty(); // Clear previous answers
 
-    question.answers.forEach(answer => {
-        const answerElement = $("<div>")
-            .addClass("answer")
-            .text(`${answer.answer} (${answer.points} points)`);
-        answersDiv.append(answerElement);
-    });
+    // Store correct answers for checking
+    correctAnswers = question.answers.map(answer => answer.answer.toLowerCase());
 
     $("#round-number").text(round);
     $("#boys-points").text(boysPoints);
     $("#girls-points").text(girlsPoints);
-
+    
+    $("#user-guess").val(''); // Clear previous input
     $("#question-container").removeClass("hidden");
     $("#next-question").addClass("hidden");
-    $("#play-team").removeClass("hidden");
-    $("#play-team-girls").removeClass("hidden");
+    $("#play-team").addClass("hidden");
+    $("#play-team-girls").addClass("hidden");
+    $("#submit-guess").removeClass("hidden"); // Show the guess button
 }
 
 function nextQuestion() {
@@ -160,6 +159,47 @@ function nextQuestion() {
     } else {
         endGame();
     }
+}
+
+function checkGuess() {
+    const userGuess = $("#user-guess").val().trim().toLowerCase();
+    
+    if (!userGuess) return; // Ignore empty input
+    $("#user-guess").val(''); // Clear input field after submission
+
+    // Check if the guess is correct
+    if (correctAnswers.includes(userGuess)) {
+        const points = questions[currentQuestionIndex].answers.find(answer => answer.answer.toLowerCase() === userGuess).points;
+        
+        // Add points to the playing team
+        if ($("#play-team").is(":visible")) {
+            boysPoints += points;
+            $("#boys-points").text(boysPoints);
+        } else {
+            girlsPoints += points;
+            $("#girls-points").text(girlsPoints);
+        }
+
+        // Display correct answers after a correct guess
+        displayAnswers();
+        $("#next-question").removeClass("hidden");
+        $("#submit-guess").addClass("hidden"); // Hide guess button
+    } else {
+        // Notify user if guess is incorrect
+        alert("Incorrect guess, try again!");
+    }
+}
+
+function displayAnswers() {
+    const answersDiv = $("#answers");
+    answersDiv.empty(); // Clear previous answers
+
+    questions[currentQuestionIndex].answers.forEach(answer => {
+        const answerElement = $("<div>")
+            .addClass("answer")
+            .text(answer.answer);
+        answersDiv.append(answerElement);
+    });
 }
 
 function playForBoys() {
