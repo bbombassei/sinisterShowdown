@@ -19,14 +19,17 @@
             <h2>Round: <span id="round-number">1</span></h2>
             <h3>Current Points - Boys: <span id="boys-points">0</span> | Girls: <span id="girls-points">0</span></h3>
         </div>
-        <div id="question-container" class="hidden">
-            <h2 id="question-text"></h2>
-            <div id="answers"></div>
-            <button id="next-question" class="hidden">Next Question</button>
-            <button id="play-team" class="hidden">Play for Boys</button>
-            <button id="play-team-girls" class="hidden">Play for Girls</button>
-            <button id="steal-points" class="hidden">Steal Points</button>
-        </div>
+       <div id="question-container" class="hidden">
+    <h2 id="question-text"></h2>
+    <input type="text" id="user-guess" placeholder="Enter your guess here..." />
+    <button id="submit-guess">Submit Guess</button>
+    <div id="answers"></div>
+    <button id="next-question" class="hidden">Next Question</button>
+    <button id="play-team" class="hidden">Play for Boys</button>
+    <button id="play-team-girls" class="hidden">Play for Girls</button>
+    <button id="steal-points" class="hidden">Steal Points</button>
+</div>
+
     </div>
 
     <script src="script.js"></script> <!-- Your custom JavaScript file -->
