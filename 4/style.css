@@ -51,18 +51,17 @@ h1 {
 }
 
 /* Answer List */
+/* Answer List */
 #answer-list {
     list-style: none;
     padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-between;
+    display: grid;  /* Use grid for two-column layout */
+    grid-template-columns: repeat(2, 1fr);  /* Create two equal-width columns */
+    gap: 20px;  /* Space between the answer items */
     margin-bottom: 40px;
 }
 
 #answer-list li {
-    flex: 1 1 calc(50% - 20px);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -71,7 +70,7 @@ h1 {
     padding: 20px;
     font-size: 1.8em;
     transition: background-color 0.3s ease;
-    border-bottom: none; /* Remove border to fix double line issue */
+    border-bottom: none;  /* Ensure no double border */
 }
 
 #answer-list li:hover {
@@ -90,6 +89,7 @@ h1 {
     text-align: right;
     font-size: 1.6em;
 }
+
 
 /* Input and Buttons */
 input {
