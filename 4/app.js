@@ -36,6 +36,20 @@ $(document).ready(function() {
             $('#points' + i).text('');
         }
     }
+    
+    function submitAnswer() {
+        let userAnswer = $('#answer-input').val().toLowerCase();
+        let question = questions[currentRound];
+        
+        for (let i = 0; i < question.answers.length; i++) {
+            let possibleAnswers = [question.answers[i].answer.toLowerCase()].concat(question.answers[i].synonyms.map(s => s.toLowerCase()));
+            
+            if (possibleAnswers.includes(userAnswer)) {
+                $('#answer' + (i + 1)).text(question.answers[i].answer);
+                $('#points' + (i + 1)).text(question.answers[i].points);
+                break;
+            }
+        }
 
     $('#submit-answer').click(function() {
         submitAnswer();
@@ -50,19 +64,6 @@ $(document).ready(function() {
         }
     });
 
-    function submitAnswer() {
-        let userAnswer = $('#answer-input').val().toLowerCase();
-        let question = questions[currentRound];
-        
-        for (let i = 0; i < question.answers.length; i++) {
-            let possibleAnswers = [question.answers[i].answer.toLowerCase()].concat(question.answers[i].synonyms.map(s => s.toLowerCase()));
-            
-            if (possibleAnswers.includes(userAnswer)) {
-                $('#answer' + (i + 1)).text(question.answers[i].answer);
-                $('#points' + (i + 1)).text(question.answers[i].points);
-                break;
-            }
-        }
 
         $('#answer-input').val('');  // Clear input field
     };
