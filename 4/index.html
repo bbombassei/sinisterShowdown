@@ -4,36 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halloween Family Feud</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="app.js" defer></script>
 </head>
 <body>
-    <div id="game">
-        <h1>Sinister Showdown</h1>
-        <div id="round-info">Round 1</div>
-        
-        <div id="question-container">
-            <h2 id="question">Sample Halloween Question</h2>
-            <ul id="answer-list">
-                <!-- Answers will be displayed here -->
-                <li><span>1.</span> <span class="answer-slot" id="answer1">______</span> <span class="points" id="points1"></span></li>
-                <li><span>2.</span> <span class="answer-slot" id="answer2">______</span> <span class="points" id="points2"></span></li>
-                <li><span>3.</span> <span class="answer-slot" id="answer3">______</span> <span class="points" id="points3"></span></li>
-                <li><span>4.</span> <span class="answer-slot" id="answer4">______</span> <span class="points" id="points4"></span></li>
-                <li><span>5.</span> <span class="answer-slot" id="answer5">______</span> <span class="points" id="points5"></span></li>
-                <li><span>6.</span> <span class="answer-slot" id="answer6">______</span> <span class="points" id="points6"></span></li>
-            </ul>
+    <div class="container">
+        <!-- Scoreboard at the top -->
+        <div class="scoreboard">
+            <h2>Scoreboard</h2>
+            <p>Boys Team: <span id="team-boys-points">0</span></p>
+            <p>Girls Team: <span id="team-girls-points">0</span></p>
         </div>
         
-        <input type="text" id="answer-input" placeholder="Type your answer here...">
-        <button id="submit-answer">Submit Answer</button>
+        <h1 id="question">Welcome to Halloween Family Feud!</h1>
+        <div class="answers">
+            <div class="answer-box">
+                <span id="answer1">______</span>
+                <span id="points1"></span>
+            </div>
+            <div class="answer-box">
+                <span id="answer2">______</span>
+                <span id="points2"></span>
+            </div>
+            <div class="answer-box">
+                <span id="answer3">______</span>
+                <span id="points3"></span>
+            </div>
+            <div class="answer-box">
+                <span id="answer4">______</span>
+                <span id="points4"></span>
+            </div>
+            <div class="answer-box">
+                <span id="answer5">______</span>
+                <span id="points5"></span>
+            </div>
+            <div class="answer-box">
+                <span id="answer6">______</span>
+                <span id="points6"></span>
+            </div>
+        </div>
+        <input type="text" id="answer-input" placeholder="Type your answer here..." />
+        <button id="submit-answer">Submit</button>
         <button id="end-round">End Round</button>
-
-        <div id="team-points">
-            <div>Team Boys: <span id="team-boys-points">0</span></div>
-            <div>Team Girls: <span id="team-girls-points">0</span></div>
-        </div>
     </div>
 </body>
 </html>
