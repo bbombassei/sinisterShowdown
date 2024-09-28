@@ -59,11 +59,13 @@ $(document).ready(function() {
 
     // Submit answer when "Enter" key is pressed
     $('#answer-input').keypress(function(event) {
+        console.log("Key pressed: ", event.which); // Log the key pressed
         if (event.which === 13) {  // 13 is the key code for Enter
             event.preventDefault(); // Prevent form submission
             submitAnswer();  // Trigger the answer submission
         }
     });
+
 
     $('#end-round').click(function() {
         let winner = prompt("Who won the round? Type 'Boys' or 'Girls'");
