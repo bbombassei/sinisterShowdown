@@ -81,13 +81,22 @@ button:hover {
 }
 
 .scoreboard {
-    margin-top: 30px;
-    font-size: 1.5em;
+    margin-bottom: 30px; /* Space below scoreboard */
+    padding: 20px; /* Padding for better appearance */
+    background: rgba(0, 0, 0, 0.7); /* Darker background for contrast */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8); /* Shadow for depth */
+    font-size: 1.8em; /* Increase font size for readability */
+    text-align: center; /* Center text */
+    position: relative; /* Position for any absolute elements if needed */
 }
 
 .scoreboard p {
-    margin: 10px 0;
+    margin: 10px 0; /* Margin between lines */
+    color: #ffcc00; /* Golden color for text */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); /* Shadow for text to improve visibility */
 }
+
 
 /* Fade-in animation for title */
 @keyframes fadeIn {
