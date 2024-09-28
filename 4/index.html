@@ -36,5 +36,32 @@
     </div>
 
     <script src="app.js"></script>
+    <script type='text/javascript'>
+        $(document).ready(function() {
+    // Submit answer when the "Submit" button is clicked
+    $('#submit-answer').on('click', function() {
+        submitAnswer();
+    });
+
+    // Submit answer when "Enter" key is pressed
+    $('#answer-input').keypress(function(event) {
+        if (event.which == 13) {  // 13 is the key code for Enter
+            event.preventDefault(); // Prevent form submission
+            submitAnswer();  // Trigger the answer submission
+        }
+    });
+
+    // Function to handle answer submission logic
+    function submitAnswer() {
+        var answer = $('#answer-input').val().trim();
+        if (answer !== "") {
+            // Handle answer logic here (e.g., check the answer, update the scoreboard)
+            console.log("Submitted answer: " + answer);
+            $('#answer-input').val('');  // Clear the input field after submission
+        }
+    }
+});
+
+    </script>
 </body>
 </html>
