@@ -37,6 +37,11 @@ h1 {
     border: 2px solid orange;
     border-radius: 8px;
     transition: transform 0.2s, box-shadow 0.3s; /* Smooth transitions */
+    height: 100px; /* Set a fixed height for uniformity */
+    display: flex; /* Use flexbox to align items */
+    align-items: center; /* Center answers vertically */
+    justify-content: center; /* Center answers horizontally */
+    font-size: 1.5em; /* Larger font size for readability */
 }
 
 .answer-box:hover {
