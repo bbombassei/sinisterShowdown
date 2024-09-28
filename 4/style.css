@@ -1,6 +1,6 @@
 body {
     font-family: 'Creepster', cursive; /* Spooky font */
-    background-image: url('https://github.com/bbombassei/sinisterShowdown/raw/main/bg.jpeg'); /* Your background image */
+    background-image: url('../raw/main/bg.jpeg'); /* Your background image */
     background-size: cover;
     background-attachment: fixed; /* Fix the background */
     color: #ffffff;
