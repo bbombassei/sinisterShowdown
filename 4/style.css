@@ -28,17 +28,21 @@ h1 {
 #answer-list {
     list-style: none;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 #answer-list li {
     font-size: 1.8em;
-    margin: 10px 0;
+    margin: 10px 20px;
+    width: 40%; /* 40% for each column with some space in between */
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .answer-slot {
-    width: 200px;
+    width: 150px;
     display: inline-block;
     border-bottom: 2px solid orange;
 }
