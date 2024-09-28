@@ -38,6 +38,19 @@ $(document).ready(function() {
     }
 
     $('#submit-answer').click(function() {
+        submitAnswer();
+    });
+
+    
+    // Submit answer when "Enter" key is pressed
+    $('#answer-input').keypress(function(event) {
+        if (event.which == 13) {  // 13 is the key code for Enter
+            event.preventDefault(); // Prevent form submission
+            submitAnswer();  // Trigger the answer submission
+        }
+    });
+
+    function submitAnswer() {
         let userAnswer = $('#answer-input').val().toLowerCase();
         let question = questions[currentRound];
         
@@ -52,7 +65,7 @@ $(document).ready(function() {
         }
 
         $('#answer-input').val('');  // Clear input field
-    });
+    };
 
     $('#end-round').click(function() {
         let winner = prompt("Who won the round? Type 'Boys' or 'Girls'");
