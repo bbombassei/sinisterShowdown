@@ -25,7 +25,6 @@ $(document).ready(function() {
     ];
 
     let currentRound = 0;
-    let currentQuestion = 0;
     let teamBoysPoints = 0;
     let teamGirlsPoints = 0;
 
@@ -36,37 +35,35 @@ $(document).ready(function() {
             $('#points' + i).text('');
         }
     }
-    
+
     function submitAnswer() {
         let userAnswer = $('#answer-input').val().toLowerCase();
         let question = questions[currentRound];
-        
+
         for (let i = 0; i < question.answers.length; i++) {
             let possibleAnswers = [question.answers[i].answer.toLowerCase()].concat(question.answers[i].synonyms.map(s => s.toLowerCase()));
-            
+
             if (possibleAnswers.includes(userAnswer)) {
                 $('#answer' + (i + 1)).text(question.answers[i].answer);
                 $('#points' + (i + 1)).text(question.answers[i].points);
-                break;
+                $('#answer-input').val('');  // Clear input field after submission
+                return;  // Exit after a match is found
             }
         }
 
-    $('#submit-answer').click(function() {
-        submitAnswer();
-    });
+        $('#answer-input').val('');  // Clear input field after checking answers
+    }
 
-    
+    // Event listener for submitting answer
+    $('#submit-answer').click(submitAnswer);
+
     // Submit answer when "Enter" key is pressed
     $('#answer-input').keypress(function(event) {
-        if (event.which == 13) {  // 13 is the key code for Enter
+        if (event.which === 13) {  // 13 is the key code for Enter
             event.preventDefault(); // Prevent form submission
             submitAnswer();  // Trigger the answer submission
         }
     });
-
-
-        $('#answer-input').val('');  // Clear input field
-    };
 
     $('#end-round').click(function() {
         let winner = prompt("Who won the round? Type 'Boys' or 'Girls'");
@@ -79,10 +76,10 @@ $(document).ready(function() {
             }
         }
 
-        if (winner.toLowerCase() === 'boys') {
+        if (winner && winner.toLowerCase() === 'boys') {
             teamBoysPoints += roundPoints;
             $('#team-boys-points').text(teamBoysPoints);
-        } else if (winner.toLowerCase() === 'girls') {
+        } else if (winner && winner.toLowerCase() === 'girls') {
             teamGirlsPoints += roundPoints;
             $('#team-girls-points').text(teamGirlsPoints);
         }
