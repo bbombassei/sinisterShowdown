@@ -1,0 +1,71 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #2b2b2b;
+    color: white;
+    text-align: center;
+}
+
+#game {
+    margin: auto;
+    width: 80%;
+    max-width: 1200px;
+}
+
+h1 {
+    font-size: 3em;
+    color: orange;
+}
+
+#round-info {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+#question-container {
+    margin: 20px 0;
+}
+
+#answer-list {
+    list-style: none;
+    padding: 0;
+}
+
+#answer-list li {
+    font-size: 1.8em;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.answer-slot {
+    width: 200px;
+    display: inline-block;
+    border-bottom: 2px solid orange;
+}
+
+.points {
+    width: 50px;
+    margin-left: 20px;
+}
+
+input, button {
+    font-size: 1.5em;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+#team-points {
+    margin-top: 40px;
+    font-size: 1.8em;
+}
+
+button {
+    background-color: orange;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darkorange;
+}
